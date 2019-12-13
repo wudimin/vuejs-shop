@@ -1,41 +1,26 @@
 <template>
   <div class="sales-board">
       <div class="sales-board-intro">
-        <h2>数据统计</h2>
-        <p>历史资料、科学实验、检验、统计等所获得的和用于科学研究、技术设计、查证、决策等的数值加以统计为解决方案做前期准备。</p>
+        <h2>白夜行</h2>
+        <p>东野圭吾：白夜行（易烊千玺、孟非推荐，东野圭吾作品无冕之王）<br>
+        我一直走在白夜里，从来就没有太阳，所以不怕失去。中文版发行量超600万册。</p>
       </div>
       <div class="sales-board-form">
           <div class="sales-board-line">
               <div class="sales-board-line-left">
-                  产品类型：
+                  购买数量：
               </div>
               <div class="sales-board-line-right">
-                  <v-chooser :selections="buyTypes"></v-chooser>
+                <v-counter @on-change="onParamChange('buyNum', $event)"></v-counter>
               </div>
           </div>
+
           <div class="sales-board-line">
+              <p>单价：29.80元</p><br>
               <div class="sales-board-line-left">
-                  适用地区：
+                  总价: {{ buyNum*29.8 }} 元
               </div>
-              <div class="sales-board-line-right">
-                  <v-selection :selections="districts"></v-selection>
-              </div>
-          </div>
-          <div class="sales-board-line">
-              <div class="sales-board-line-left">
-                  有效时间：
-              </div>
-              <div class="sales-board-line-right">
-                  半年
-              </div>
-          </div>
-          <div class="sales-board-line">
-              <div class="sales-board-line-left">
-                  总价：
-              </div>
-              <div class="sales-board-line-right">
-                  500 元
-              </div>
+              
           </div>
           <div class="sales-board-line">
               <div class="sales-board-line-left">&nbsp;</div>
@@ -47,252 +32,39 @@
           </div>
       </div>
       <div class="sales-board-des">
-        <h2>产品说明</h2>
-        <p>历史资料、科学实验、检验、统计等所获得的和用于科学研究、技术设计、查证、决策等的数值加以统计为解决方案做前期准备。</p>
-
-        <table class="sales-board-table">
-          <tbody>
-              <tr class="ui-table-row">
-                  <td class="col-first">
-                      <div class="intro-pic">
-                          <label>安全安保</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>办公文教</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>彩票</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>车辆物流</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>成人用品</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>出版传媒</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>电脑硬件</label>
-                      </div>
-                  </td>
-              </tr>
-              <tr class="ui-table-row">
-                  <td class="col-first">
-                      <div class="intro-pic">
-                          <label>电子电工</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>房地产建筑装修</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>分类平台</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>服装鞋帽</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>箱包饰品</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>化工原料制品</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>机械设备</label>
-                      </div>
-                  </td>
-              </tr>
-              <tr class="ui-table-row">
-                  <td class="col-first">
-                      <div class="intro-pic">
-                          <label>家庭日用品</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>家用电器</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>教育培训</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>节能环保</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>金融服务</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>礼品</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>旅游住宿</label>
-                      </div>
-                  </td>
-              </tr>
-              <tr class="ui-table-row">
-                  <td class="col-first">
-                      <div class="intro-pic">
-                          <label>美容化妆</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>母婴护理</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>农林牧渔</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>软件</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>商务服务</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>生活服务</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>食品保健品</label>
-                      </div>
-                  </td>
-              </tr>
-              <tr class="ui-table-row">
-                  <td class="col-first">
-                      <div class="intro-pic">
-                          <label>手机数码</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>通讯服务设备</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>网络服务</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>医疗服务</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>游戏</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>运动休闲娱乐</label>
-                      </div>
-                  </td>
-                  <td>
-                      <div class="intro-pic">
-                          <label>招商加盟</label>
-                      </div>
-                  </td>
-              </tr>
-          </tbody>
-      </table>
+        <h2>作者简介</h2>
+        <p>东野圭吾 日本著名作家。1985年，凭《放学后》获第31届江户川乱步奖，开始专职写作；1999年，《秘密》获第52届日本推理作家协会奖；此后《白夜行》、《单恋》、《信》、《幻夜》先后入围直木奖。
+        2005年出版的《嫌疑人X的献身》史无前例地将第134届直木奖、第6届本格推理小说大奖，以及年度三大推理小说排行榜第1名一并斩获；2008年，《流星之绊》获第43届新风奖。2009年出版的《新参者》获两大推理小说排行榜年度第1名；2012年，《浪矢杂货店的奇迹》获第7届中央公论文艺奖。</p>
+        <h3>内容简介</h3>
+        <p>东野圭吾万千书迷心中的无冕之王,周刊文春推理小说年度BEST10第1名。本格推理小说年度BEST10第2名。《白夜行》是东野圭吾迄今口碑最好的长篇杰作，具备经典名著的一切要素：一宗离奇命案牵出跨度近20年步步惊心的故事：悲凉的爱情、吊诡的命运、令人发指的犯罪、复杂人性的对决与救赎……</p>
+        <h3>原文摘录</h3>
+        <ul>
+          <li>我的天空没有太阳，总是黑夜，但并不暗，因为有东西代替了太阳。虽然没有太阳那么明亮，但对我来说已经足够。凭借这份光，我便能把黑夜当成白天。我从来就没有太阳，所以不怕失去。</li>
+          <li>人生也一样，有白天和黑夜，只是不会像真正的太阳那样，有定时的日出和日落。有些人一辈子都活在太阳的照耀下，也有些人不得不一直活在漆黑的深夜里。人害怕的，就是本来一直存在的太阳落下不再升起，也就是非常害怕原本照在身上的光芒消失。</li>
+        </ul>
       </div>
   </div>
 </template>
 
 <script>
-import VSelection from '../../components/base/selection'
-import VChooser from '../../components/base/chooser'
+
+import VCounter from '../../components/base/counter'
+import VMulChooser from '../../components/base/multiplyChooser'
 export default {
   components: {
-    VChooser,
-    VSelection
+    
+    VCounter,
+    VMulChooser
   },
   data () {
     return {
-      buyTypes: [
-        {
-          label: '红色版',
-          value: 0
-        },
-        {
-          label: '绿色版',
-          value: 1
-        },
-        {
-          label: '紫色版',
-          value: 2
-        }
-      ],
-      districts: [
-        {
-          label: '北京',
-          value: 0
-        },
-        {
-          label: '上海',
-          value: 1
-        },
-        {
-          label: '广州',
-          value: 2
-        },
-        {
-          label: '天津',
-          value: 3
-        },
-        {
-          label: '武汉',
-          value: 4
-        },
-        {
-          label: '重庆',
-          value: 5
-        },
-      ]
+      buyNum: 1,
+    }
+  },
+  methods: {
+    onParamChange (attr, val) {
+      this[attr] = val
+      this.getPrice()
     }
   }
 }

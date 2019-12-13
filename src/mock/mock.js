@@ -1,14 +1,10 @@
 import Mock from 'mockjs'
 
-Mock.mock(/getNewsList/, {
-    'list|5': [{
-        'url': '@url',
-        'title': '@ctitle(5, 20)'
-    }]
-})
+
 function getRImg () {
-	return Mock.Random.image('700x300', Mock.Random.hex())
-}
+  return Mock.Random.image('600x300', Mock.Random.color())
+}   
+//  "./assets/slideShow/pic1.jpg",
 Mock.mock(/getSlides/, [
     {
       src: getRImg (),
@@ -36,106 +32,27 @@ Mock.mock(/getSlides/, [
     }
 ])
 
-Mock.mock(/getPrice/, {
-	'number|1-100': 100 
-})
-Mock.mock(/createOrder/, 'number|1-100')
+
 
 Mock.mock(/getBoardList/, [
         {
-          title: '@ctitle(4)',
-          description: '@ctitle(8, 12)',
-          id: 'car',
+          title: '平凡的世界',
+          description: '这这部小说中，作家高度浓缩了中国西北农村的历史变迁过程，作品达到了思想性与艺术性的高度统一。',
           toKey: 'analysis',
-          saleout: '@boolean'
         },
         {
-          title: '@ctitle(4)',
-          description: '@ctitle(8, 12)',
-          id: 'earth',
+          title: '白夜行',
+          description: '《白夜行》被普遍视为日本作家东野圭吾作品的无冕之王，一经推出即成为东野圭吾的长篇小说代表作。',
           toKey: 'count',
-          saleout: '@boolean'
         },
         {
-          title: '@ctitle(4)',
-          description: '@ctitle(8, 12)',
-          id: 'loud',
+          title: '百年孤独',
+          description: '《百年孤独》是魔幻现实主义文学的代表作，描写了布恩迪亚家族七代人的传奇故事。',
           toKey: 'forecast',
-          saleout: '@boolean'
         },
         {
-          title: '@ctitle(4)',
-          description: '@ctitle(8, 12)',
-          id: 'hill',
+          title: '失踪的孩子',
+          description: '“我的整个生命，只是一场为了提升社会地位的低俗斗争。”，全球畅销近千万册被翻译成40多种语言',
           toKey: 'publish',
-          saleout: '@boolean'
         }
 ])
-
-Mock.mock(/getProductList/, {
-        pc: {
-          title: 'PC产品',
-          list: [
-            {
-              name: '@ctitle(4)',
-              url: '@url',
-              hot: '@boolean'
-            },
-            {
-              name: '@ctitle(4)',
-              url: '@url',
-              hot: '@boolean'
-            },
-            {
-              name: '@ctitle(4)',
-              url: '@url',
-              hot: '@boolean'
-            },
-            {
-              name: '@ctitle(4)',
-              url: '@url',
-              hot: '@boolean'
-            }
-          ]
-        },
-        app: {
-          title: '手机应用类',
-          last: true,
-          list: [
-            {
-              name: '@ctitle(4)',
-              url: '@url',
-              hot: '@boolean'
-            },
-            {
-              name: '@ctitle(4)',
-              url: '@url',
-              hot: '@boolean'
-            },
-            {
-              name: '@ctitle(4)',
-              url: '@url',
-              hot: '@boolean'
-            },
-            {
-              name: '@ctitle(4)',
-              url: '@url',
-              hot: '@boolean'
-            }
-          ]
-        }
-})
-Mock.mock(/getTableData/, {
-    "total": 25,
-    "list|25": [
-      {
-        "orderId": "@id",
-        "product": "@ctitle(4)",
-        "version": "@ctitle(3)",
-        "period": "@integer(1,5)年",
-        "buyNum": "@integer(1,8)",
-        "date": "@date()",
-        "amount": "@integer(100, 500)元"
-      }
-    ]
-})

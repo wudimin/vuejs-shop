@@ -3,11 +3,6 @@
     <div class="detail-left">
       <div class="product-board">
         <img :src="productIcon">
-        <ul>
-          <router-link v-for="item in products" :to="{ path: item.path }" tag="li" active-class="active" :key="item.path">
-            {{ item.name }}
-          </router-link>
-        </ul>
       </div>
     </div>
     <div class="detail-right">
@@ -22,34 +17,12 @@
 export default {
   data () {
     return {
-      products: [
-        {
-          name: '数据统计',
-          path: 'count',
-          icon: require('../assets/images/1.png'),
-          active: false
-        },
-        {
-          name: '数据预测',
-          path: 'forecast',
-          active: false
-        },
-        {
-          name: '流量分析',
-          path: 'analysis',
-          active: false
-        },
-        {
-          name: '广告发布',
-          path: 'publish',
-          active: false
-        }
-      ],
+      
       imgMap: {
-        '/detail/count': require("../assets/images/1.png"),
-        '/detail/forecast': require("../assets/images/2.png"),
-        '/detail/analysis': require("../assets/images/3.png"),
-        '/detail/publish': require("../assets/images/4.png")
+        '/detail/count': require("../assets/images/1.jpg"),
+        '/detail/forecast': require("../assets/images/2.jpg"),
+        '/detail/analysis': require("../assets/images/3.jpg"),
+        '/detail/publish': require("../assets/images/4.jpg")
       }
     }
   },
@@ -82,14 +55,7 @@ export default {
   background: #fff;
   padding: 20px 0;
 }
-.product-board ul {
-  margin-top: 20px;
-}
-.product-board li {
-  text-align: left;
-  padding: 10px 15px;
-  cursor: pointer;
-}
+
 .product-board li.active,
 .product-board li:hover {
   background: #4fc08d;
